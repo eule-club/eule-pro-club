@@ -20,8 +20,12 @@ const FounderSection = () => {
             {/* Founder Image/Info */}
             <div className="text-center lg:text-left">
               <div className="relative inline-block mb-8">
-                <div className="w-64 h-64 bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center mx-auto lg:mx-0 shadow-lg">
-                  <span className="text-gray-600 text-8xl">👩‍🔬</span>
+                <div className="w-64 h-64 rounded-full overflow-hidden mx-auto lg:mx-0 shadow-lg border-4 border-red-100">
+                  <img 
+                    src="/lovable-uploads/e1e847bf-73cf-45ce-8c15-19fee54750c0.png" 
+                    alt="Hatice Tavlı" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-red-100 overflow-hidden">
                   <img 
@@ -36,6 +40,14 @@ const FounderSection = () => {
               <p className="text-xl text-red-500 font-semibold mb-6">
                 {t('founder.roles')}
               </p>
+              
+              {/* Vision Statement */}
+              <div className="bg-gradient-to-r from-red-50 to-red-100 p-6 rounded-xl mb-6 border-l-4 border-red-500">
+                <h4 className="text-lg font-bold text-red-600 mb-2">{t('founder.vision.title')}</h4>
+                <p className="text-2xl font-bold text-red-500 italic">
+                  "{t('founder.vision.statement')}"
+                </p>
+              </div>
               
               <blockquote className="text-lg text-gray-700 italic border-l-4 border-red-500 pl-6 mb-8">
                 "{t('founder.quote')}"
@@ -61,8 +73,8 @@ const FounderSection = () => {
                 
                 <div className="bg-gray-50 p-6 rounded-xl border-l-4 border-red-500">
                   <GraduationCap className="w-8 h-8 text-red-500 mb-3" />
-                  <h5 className="font-semibold text-black mb-2">{t('founder.data')}</h5>
-                  <p className="text-gray-600 text-sm">{t('founder.data.desc')}</p>
+                  <h5 className="font-semibold text-black mb-2">{t('founder.medical')}</h5>
+                  <p className="text-gray-600 text-sm">{t('founder.medical.desc')}</p>
                 </div>
                 
                 <div className="bg-gray-50 p-6 rounded-xl border-l-4 border-red-500">
