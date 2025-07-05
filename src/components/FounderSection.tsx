@@ -22,7 +22,7 @@ const FounderSection = () => {
               <div className="relative inline-block mb-8">
                 <div className="w-64 h-64 rounded-full overflow-hidden mx-auto lg:mx-0 shadow-lg border-4 border-red-100">
                   <img 
-                    src="/lovable-uploads/e1e847bf-73cf-45ce-8c15-19fee54750c0.png" 
+                    src="/lovable-uploads/e17453dd-72ed-47e2-8d6d-911ccc86b41b.png" 
                     alt="Hatice Tavlı" 
                     className="w-full h-full object-cover"
                   />
