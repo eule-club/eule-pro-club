@@ -1,36 +1,61 @@
 
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageSelector from "./LanguageSelector";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-red-500/20">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-red-500/20 shadow-sm">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-xl">🦉</span>
+            <div className="w-12 h-12 rounded-full flex items-center justify-center overflow-hidden">
+              <img 
+                src="/lovable-uploads/588aa5bf-d4eb-4eaa-8d1c-f75462913a23.png" 
+                alt="EULE Logo" 
+                className="w-full h-full object-contain"
+              />
             </div>
             <div>
-              <h1 className="text-white font-bold text-2xl">EULE</h1>
+              <h1 className="text-black font-bold text-2xl">EULE</h1>
               <p className="text-red-500 text-sm">FOUNDED 2025</p>
             </div>
           </div>
           
-          <nav className="hidden md:flex items-center space-x-8">
-            <a href="#team" className="text-white hover:text-red-500 transition-colors">Team</a>
-            <a href="#technology" className="text-white hover:text-red-500 transition-colors">Technologie</a>
-            <a href="#partnerships" className="text-white hover:text-red-500 transition-colors">Partnerschaften</a>
-            <a href="#membership" className="text-white hover:text-red-500 transition-colors">Membership</a>
-            <a href="#contact" className="text-red-500 border border-red-500 px-4 py-2 rounded hover:bg-red-500 hover:text-white transition-all">
-              Kontakt
+          <nav className="hidden lg:flex items-center space-x-6">
+            <a href="#team" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
+              {t('nav.team')}
+            </a>
+            <a href="#technology" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
+              {t('nav.technology')}
+            </a>
+            <a href="#partnerships" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
+              {t('nav.partnerships')}
+            </a>
+            <a href="#membership" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
+              {t('nav.membership')}
+            </a>
+            <a href="#club" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
+              {t('nav.club')}
+            </a>
+            <a href="#shop" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
+              {t('nav.shop')}
+            </a>
+            <a href="#grandprix" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
+              {t('nav.grandprix')}
+            </a>
+            <LanguageSelector />
+            <a href="#contact" className="text-red-500 border border-red-500 px-4 py-2 rounded hover:bg-red-500 hover:text-white transition-all text-sm font-medium">
+              {t('nav.contact')}
             </a>
           </nav>
           
           <button 
-            className="md:hidden text-white"
+            className="lg:hidden text-gray-700"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X /> : <Menu />}
@@ -38,14 +63,20 @@ const Header = () => {
         </div>
         
         {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-red-500/20">
+          <nav className="lg:hidden mt-4 pb-4 border-t border-red-500/20">
             <div className="flex flex-col space-y-4 mt-4">
-              <a href="#team" className="text-white hover:text-red-500 transition-colors">Team</a>
-              <a href="#technology" className="text-white hover:text-red-500 transition-colors">Technologie</a>
-              <a href="#partnerships" className="text-white hover:text-red-500 transition-colors">Partnerschaften</a>
-              <a href="#membership" className="text-white hover:text-red-500 transition-colors">Membership</a>
+              <a href="#team" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.team')}</a>
+              <a href="#technology" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.technology')}</a>
+              <a href="#partnerships" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.partnerships')}</a>
+              <a href="#membership" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.membership')}</a>
+              <a href="#club" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.club')}</a>
+              <a href="#shop" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.shop')}</a>
+              <a href="#grandprix" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.grandprix')}</a>
+              <div className="pt-2">
+                <LanguageSelector />
+              </div>
               <a href="#contact" className="text-red-500 border border-red-500 px-4 py-2 rounded hover:bg-red-500 hover:text-white transition-all inline-block text-center">
-                Kontakt
+                {t('nav.contact')}
               </a>
             </div>
           </nav>

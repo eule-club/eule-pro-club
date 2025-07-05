@@ -5,6 +5,9 @@ import FounderSection from "@/components/FounderSection";
 import VehicleSection from "@/components/VehicleSection";
 import PartnershipSection from "@/components/PartnershipSection";
 import MembershipSection from "@/components/MembershipSection";
+import ClubSection from "@/components/ClubSection";
+import ShopSection from "@/components/ShopSection";
+import GrandPrixSection from "@/components/GrandPrixSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -16,6 +19,9 @@ const Index = () => {
       <VehicleSection />
       <PartnershipSection />
       <MembershipSection />
+      <ClubSection />
+      <ShopSection />
+      <GrandPrixSection />
       <Footer />
     </div>
   );

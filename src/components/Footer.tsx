@@ -1,17 +1,24 @@
 
 import { Mail, Phone, MapPin, Instagram, Youtube } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   return (
-    <footer id="contact" className="bg-black text-white py-16">
+    <footer id="contact" className="bg-gray-900 text-white py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {/* Brand */}
             <div className="col-span-1 lg:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-2xl">🦉</span>
+                <div className="w-12 h-12 rounded-full flex items-center justify-center overflow-hidden bg-white">
+                  <img 
+                    src="/lovable-uploads/588aa5bf-d4eb-4eaa-8d1c-f75462913a23.png" 
+                    alt="EULE Logo" 
+                    className="w-full h-full object-contain p-1"
+                  />
                 </div>
                 <div>
                   <h1 className="text-white font-bold text-2xl">EULE</h1>
@@ -20,8 +27,7 @@ const Footer = () => {
               </div>
               
               <p className="text-gray-300 mb-6 max-w-md">
-                Das intelligenteste Elektro-Motorsport-Team der Welt. 
-                Wo Mathematik auf Maschinen trifft, wo High-Tech auf Leidenschaft trifft.
+                {t('footer.description')}
               </p>
               
               <div className="flex space-x-4">
@@ -36,7 +42,7 @@ const Footer = () => {
             
             {/* Contact */}
             <div>
-              <h3 className="text-xl font-bold mb-6">Kontakt</h3>
+              <h3 className="text-xl font-bold mb-6">{t('footer.contact')}</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <Mail className="w-5 h-5 text-red-500 mt-0.5" />
@@ -64,12 +70,15 @@ const Footer = () => {
             
             {/* Quick Links */}
             <div>
-              <h3 className="text-xl font-bold mb-6">Quick Links</h3>
+              <h3 className="text-xl font-bold mb-6">{t('footer.quicklinks')}</h3>
               <div className="space-y-3">
-                <a href="#team" className="block text-gray-300 hover:text-red-500 transition-colors">Team</a>
-                <a href="#technology" className="block text-gray-300 hover:text-red-500 transition-colors">Technologie</a>
-                <a href="#partnerships" className="block text-gray-300 hover:text-red-500 transition-colors">Partnerschaften</a>
-                <a href="#membership" className="block text-gray-300 hover:text-red-500 transition-colors">Membership</a>
+                <a href="#team" className="block text-gray-300 hover:text-red-500 transition-colors">{t('nav.team')}</a>
+                <a href="#technology" className="block text-gray-300 hover:text-red-500 transition-colors">{t('nav.technology')}</a>
+                <a href="#partnerships" className="block text-gray-300 hover:text-red-500 transition-colors">{t('nav.partnerships')}</a>
+                <a href="#membership" className="block text-gray-300 hover:text-red-500 transition-colors">{t('nav.membership')}</a>
+                <a href="#club" className="block text-gray-300 hover:text-red-500 transition-colors">{t('nav.club')}</a>
+                <a href="#shop" className="block text-gray-300 hover:text-red-500 transition-colors">{t('nav.shop')}</a>
+                <a href="#grandprix" className="block text-gray-300 hover:text-red-500 transition-colors">{t('nav.grandprix')}</a>
               </div>
             </div>
           </div>
@@ -79,19 +88,19 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row justify-between items-center">
               <div className="text-center md:text-left mb-4 md:mb-0">
                 <p className="text-gray-400 text-sm">
-                  © 2025 EULE. Alle Rechte vorbehalten.
+                  {t('footer.rights')}
                 </p>
                 <p className="text-gray-500 text-xs mt-1">
-                  🇩🇪 German Engineering x 🇹🇷 Made in Turkey
+                  {t('footer.made')}
                 </p>
               </div>
               
               <div className="text-center md:text-right">
                 <p className="text-red-500 font-semibold text-lg">
-                  Let's Engineer The Future. Together.
+                  {t('footer.tagline')}
                 </p>
                 <p className="text-gray-400 text-sm mt-1">
-                  Engineering Speed. Creating Legends.
+                  {t('hero.tagline')}
                 </p>
               </div>
             </div>
