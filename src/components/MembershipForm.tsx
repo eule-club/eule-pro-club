@@ -1,5 +1,5 @@
 
-import { X, Crown, CreditCard, Users } from "lucide-react";
+import { X, Crown, CreditCard, Users, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
@@ -7,10 +7,11 @@ import { useToast } from "@/hooks/use-toast";
 
 interface MembershipFormProps {
   onClose: () => void;
+  selectedMembership?: string;
 }
 
-const MembershipForm = ({ onClose }: MembershipFormProps) => {
-  const [selectedPlan, setSelectedPlan] = useState("monthly");
+const MembershipForm = ({ onClose, selectedMembership = "supporter" }: MembershipFormProps) => {
+  const [selectedPlan, setSelectedPlan] = useState(selectedMembership === "fans" ? "fans" : "monthly");
   const [isProcessing, setIsProcessing] = useState(false);
   const { toast } = useToast();
   
@@ -19,6 +20,16 @@ const MembershipForm = ({ onClose }: MembershipFormProps) => {
     email: "",
     phone: ""
   });
+
+  const membershipOptions = {
+    supporter: {
+      monthly: { price: "€29", period: "pro Monat" },
+      yearly: { price: "€299", period: "pro Jahr", discount: "€348 → €299" }
+    },
+    fans: {
+      monthly: { price: "€99", period: "pro Monat" }
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,16 +53,36 @@ const MembershipForm = ({ onClose }: MembershipFormProps) => {
     });
   };
 
+  const getCurrentPrice = () => {
+    if (selectedPlan === "fans") {
+      return membershipOptions.fans.monthly;
+    }
+    return selectedPlan === "yearly" 
+      ? membershipOptions.supporter.yearly 
+      : membershipOptions.supporter.monthly;
+  };
+
+  const getMembershipTitle = () => {
+    return selectedPlan === "fans" ? "EULE Fans" : "EULE Supporter";
+  };
+
+  const getMembershipIcon = () => {
+    return selectedPlan === "fans" ? Heart : Crown;
+  };
+
+  const currentPrice = getCurrentPrice();
+  const MembershipIcon = getMembershipIcon();
+
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
         <div className="p-6 border-b border-gray-200 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center">
-              <Crown className="w-5 h-5 text-white" />
+            <div className={`w-10 h-10 ${selectedPlan === "fans" ? "bg-red-500" : "bg-blue-500"} rounded-full flex items-center justify-center`}>
+              <MembershipIcon className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-black">EULE Membership</h3>
+              <h3 className="text-2xl font-bold text-black">{getMembershipTitle()}</h3>
               <p className="text-gray-600">Join the Inner Circle</p>
             </div>
           </div>
@@ -64,38 +95,60 @@ const MembershipForm = ({ onClose }: MembershipFormProps) => {
           {/* Plan Selection */}
           <div className="mb-6">
             <h4 className="font-semibold text-black mb-4">Wählen Sie Ihren Plan:</h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              <div 
-                className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${
-                  selectedPlan === "monthly" 
-                    ? "border-red-500 bg-red-50" 
-                    : "border-gray-200 hover:border-gray-300"
-                }`}
-                onClick={() => setSelectedPlan("monthly")}
-              >
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-black">€29</div>
-                  <div className="text-sm text-gray-600">pro Monat</div>
-                  <div className="text-xs text-gray-500 mt-1">Jederzeit kündbar</div>
+            
+            {selectedMembership !== "fans" && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+                <div 
+                  className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                    selectedPlan === "monthly" 
+                      ? "border-blue-500 bg-blue-50" 
+                      : "border-gray-200 hover:border-gray-300"
+                  }`}
+                  onClick={() => setSelectedPlan("monthly")}
+                >
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-black">€29</div>
+                    <div className="text-sm text-gray-600">pro Monat</div>
+                    <div className="text-xs text-gray-500 mt-1">Jederzeit kündbar</div>
+                  </div>
+                </div>
+                
+                <div 
+                  className={`p-4 rounded-xl border-2 cursor-pointer transition-all relative ${
+                    selectedPlan === "yearly" 
+                      ? "border-blue-500 bg-blue-50" 
+                      : "border-gray-200 hover:border-gray-300"
+                  }`}
+                  onClick={() => setSelectedPlan("yearly")}
+                >
+                  <div className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs px-2 py-1 rounded-full">
+                    15% Rabatt
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-black">€299</div>
+                    <div className="text-sm text-gray-600">pro Jahr</div>
+                    <div className="text-xs text-gray-500 mt-1">€348 → €299</div>
+                  </div>
                 </div>
               </div>
-              
-              <div 
-                className={`p-4 rounded-xl border-2 cursor-pointer transition-all relative ${
-                  selectedPlan === "yearly" 
-                    ? "border-red-500 bg-red-50" 
-                    : "border-gray-200 hover:border-gray-300"
-                }`}
-                onClick={() => setSelectedPlan("yearly")}
-              >
-                <div className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
-                  15% Rabatt
+            )}
+
+            <div 
+              className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                selectedPlan === "fans" 
+                  ? "border-red-500 bg-red-50" 
+                  : "border-gray-200 hover:border-gray-300"
+              }`}
+              onClick={() => setSelectedPlan("fans")}
+            >
+              <div className="text-center">
+                <div className="flex items-center justify-center mb-2">
+                  <Heart className="w-5 h-5 text-red-500 mr-2" />
+                  <span className="font-semibold text-red-500">EULE Fans Membership</span>
                 </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-black">€299</div>
-                  <div className="text-sm text-gray-600">pro Jahr</div>
-                  <div className="text-xs text-gray-500 mt-1">€348 → €299</div>
-                </div>
+                <div className="text-3xl font-bold text-black">€99</div>
+                <div className="text-sm text-gray-600">pro Monat</div>
+                <div className="text-xs text-gray-500 mt-1">Alle Supporter Benefits + Premium Zugang</div>
               </div>
             </div>
           </div>
@@ -104,7 +157,7 @@ const MembershipForm = ({ onClose }: MembershipFormProps) => {
           <div className="bg-gray-50 p-4 rounded-xl mb-6">
             <h5 className="font-semibold text-black mb-3 flex items-center">
               <Users className="w-4 h-4 mr-2" />
-              Ihre Member-Vorteile:
+              Ihre {getMembershipTitle()} Vorteile:
             </h5>
             <ul className="text-sm text-gray-700 space-y-2">
               <li className="flex items-start">
@@ -113,20 +166,28 @@ const MembershipForm = ({ onClose }: MembershipFormProps) => {
               </li>
               <li className="flex items-start">
                 <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 mr-2"></div>
-                Exklusive Tech-Talks mit Hatice Tavlı
-              </li>
-              <li className="flex items-start">
-                <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 mr-2"></div>
-                Früher Zugang zu limitierten Merchandise
-              </li>
-              <li className="flex items-start">
-                <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 mr-2"></div>
                 Member-only Discord Community
               </li>
               <li className="flex items-start">
                 <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 mr-2"></div>
-                VIP-Einladungen zu Events & Präsentationen
+                Newsletter & Tech-Updates
               </li>
+              {selectedPlan === "fans" && (
+                <>
+                  <li className="flex items-start">
+                    <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 mr-2"></div>
+                    Exklusive Tech-Talks mit Hatice Tavlı
+                  </li>
+                  <li className="flex items-start">
+                    <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 mr-2"></div>
+                    VIP-Einladungen zu Events & Präsentationen
+                  </li>
+                  <li className="flex items-start">
+                    <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 mr-2"></div>
+                    Persönliche Team-Updates & Q&A Sessions
+                  </li>
+                </>
+              )}
             </ul>
           </div>
           
@@ -190,15 +251,19 @@ const MembershipForm = ({ onClose }: MembershipFormProps) => {
             
             <Button 
               type="submit" 
-              className="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-3"
+              className={`w-full ${
+                selectedPlan === "fans" 
+                  ? "bg-red-500 hover:bg-red-600" 
+                  : "bg-blue-500 hover:bg-blue-600"
+              } text-white font-semibold py-3`}
               disabled={isProcessing}
             >
               {isProcessing ? (
                 "Wird verarbeitet..."
               ) : (
                 <>
-                  Membership starten - €{selectedPlan === "monthly" ? "29/Monat" : "299/Jahr"}
-                  <Crown className="ml-2 w-4 h-4" />
+                  Membership starten - {currentPrice.price}/{selectedPlan === "yearly" ? "Jahr" : "Monat"}
+                  <MembershipIcon className="ml-2 w-4 h-4" />
                 </>
               )}
             </Button>

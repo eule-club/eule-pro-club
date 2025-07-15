@@ -1,11 +1,17 @@
 
-import { Users, Crown, Gift, Eye, Truck, Percent } from "lucide-react";
+import { Users, Crown, Gift, Eye, Truck, Percent, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import MembershipForm from "./MembershipForm";
 
 const MembershipSection = () => {
   const [showMembershipForm, setShowMembershipForm] = useState(false);
+  const [selectedMembership, setSelectedMembership] = useState("");
+
+  const handleMembershipSelect = (membership: string) => {
+    setSelectedMembership(membership);
+    setShowMembershipForm(true);
+  };
 
   const membershipBenefits = [
     {
@@ -40,6 +46,44 @@ const MembershipSection = () => {
     }
   ];
 
+  const membershipTiers = [
+    {
+      id: "supporter",
+      name: "EULE Supporter",
+      price: "€29",
+      period: "/ Monat",
+      yearlyPrice: "€299",
+      yearlyPeriod: "/ Jahr (15% Rabatt)",
+      icon: Users,
+      color: "from-blue-500 to-blue-600",
+      features: [
+        "Behind-the-Scenes Updates",
+        "Community Discord Zugang",
+        "Newsletter & Tech-Updates",
+        "Member-only Content",
+        "Event-Benachrichtigungen"
+      ]
+    },
+    {
+      id: "fans",
+      name: "EULE Fans",
+      price: "€99",
+      period: "/ Monat",
+      icon: Heart,
+      color: "from-red-500 to-red-600",
+      features: [
+        "Alle Supporter Benefits",
+        "Exklusive Tech-Talks mit Hatice",
+        "VIP Event-Einladungen",
+        "Früher Merchandise-Zugang",
+        "Persönliche Team-Updates",
+        "Limitierte Fan-Pakete",
+        "Direkte Q&A Sessions"
+      ],
+      popular: true
+    }
+  ];
+
   return (
     <section id="membership" className="py-20 bg-gradient-to-br from-red-50 to-white">
       <div className="container mx-auto px-4">
@@ -60,22 +104,68 @@ const MembershipSection = () => {
             <div className="w-24 h-1 bg-red-500 mx-auto"></div>
           </div>
           
-          {/* Membership Value Proposition */}
-          <div className="bg-gradient-to-r from-red-500 to-red-600 text-white p-8 rounded-2xl mb-12 text-center">
-            <h3 className="text-2xl font-bold mb-4">Für Fans, Early Supporters & Tech-Enthusiasten</h3>
-            <p className="text-lg opacity-90 mb-6">
-              Unterstütze EULE auf dem Weg zur Rennstrecke und erhalte exklusiven Zugang zu unserem Entwicklungsprozess.
-            </p>
-            <div className="flex flex-col md:flex-row gap-4 justify-center">
-              <div className="bg-white/20 p-4 rounded-xl">
-                <div className="text-2xl font-bold">€29</div>
-                <div className="text-sm opacity-90">pro Monat</div>
-              </div>
-              <div className="bg-white/20 p-4 rounded-xl">
-                <div className="text-2xl font-bold">€299</div>
-                <div className="text-sm opacity-90">pro Jahr (15% Rabatt)</div>
-              </div>
-            </div>
+          {/* Membership Tiers */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
+            {membershipTiers.map((tier) => {
+              const IconComponent = tier.icon;
+              return (
+                <div 
+                  key={tier.id}
+                  className={`relative bg-white rounded-2xl shadow-xl border-2 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 ${
+                    tier.popular ? 'border-red-500 scale-105' : 'border-gray-200'
+                  }`}
+                >
+                  {tier.popular && (
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                      <div className="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center">
+                        <Heart className="w-4 h-4 mr-1" />
+                        Beliebt
+                      </div>
+                    </div>
+                  )}
+                  
+                  <div className="p-8">
+                    <div className={`w-16 h-16 bg-gradient-to-r ${tier.color} rounded-full flex items-center justify-center mx-auto mb-6`}>
+                      <IconComponent className="w-8 h-8 text-white" />
+                    </div>
+                    
+                    <h3 className="text-2xl font-bold text-black text-center mb-4">{tier.name}</h3>
+                    
+                    <div className="text-center mb-6">
+                      <span className="text-4xl font-bold text-black">{tier.price}</span>
+                      <span className="text-gray-500 text-lg">{tier.period}</span>
+                      {tier.yearlyPrice && (
+                        <div className="mt-2">
+                          <span className="text-2xl font-bold text-gray-700">{tier.yearlyPrice}</span>
+                          <span className="text-gray-500 text-sm">{tier.yearlyPeriod}</span>
+                        </div>
+                      )}
+                    </div>
+                    
+                    <ul className="space-y-3 mb-8">
+                      {tier.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-start">
+                          <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                          <span className="text-gray-700 text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    <Button 
+                      className={`w-full ${
+                        tier.popular 
+                          ? 'bg-red-500 hover:bg-red-600 text-white' 
+                          : 'bg-gray-100 hover:bg-gray-200 text-black'
+                      } transition-all text-lg py-3`}
+                      onClick={() => handleMembershipSelect(tier.id)}
+                    >
+                      {tier.name} werden
+                      <IconComponent className="ml-2 w-5 h-5" />
+                    </Button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
           
           {/* Membership Benefits */}
@@ -132,15 +222,6 @@ const MembershipSection = () => {
           
           {/* CTA Section */}
           <div className="text-center">
-            <Button 
-              size="lg"
-              className="bg-red-500 hover:bg-red-600 text-white px-12 py-4 text-lg font-semibold rounded-full transition-all transform hover:scale-105 mb-6"
-              onClick={() => setShowMembershipForm(true)}
-            >
-              EULE Member werden
-              <Crown className="ml-2 w-5 h-5" />
-            </Button>
-            
             <p className="text-gray-600 text-sm max-w-md mx-auto">
               Jederzeit kündbar. Unterstütze echte Innovation im deutschen Motorsport.
             </p>
@@ -150,7 +231,10 @@ const MembershipSection = () => {
       
       {/* Membership Form Overlay */}
       {showMembershipForm && (
-        <MembershipForm onClose={() => setShowMembershipForm(false)} />
+        <MembershipForm 
+          selectedMembership={selectedMembership}
+          onClose={() => setShowMembershipForm(false)} 
+        />
       )}
     </section>
   );

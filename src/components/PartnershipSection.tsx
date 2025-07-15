@@ -16,8 +16,6 @@ const PartnershipSection = () => {
   const partnershipTiers = [
     {
       name: "Platinum",
-      price: "150.000 €",
-      period: "/ Monat",
       icon: Crown,
       color: "from-purple-500 to-purple-600",
       features: [
@@ -32,8 +30,6 @@ const PartnershipSection = () => {
     },
     {
       name: "Gold", 
-      price: "135.000 €",
-      period: "/ Monat",
       icon: Award,
       color: "from-yellow-500 to-yellow-600",
       features: [
@@ -47,8 +43,6 @@ const PartnershipSection = () => {
     },
     {
       name: "Silber",
-      price: "75.000 €", 
-      period: "/ Monat",
       icon: Medal,
       color: "from-gray-400 to-gray-500",
       features: [
@@ -62,8 +56,6 @@ const PartnershipSection = () => {
     },
     {
       name: "Bronze",
-      price: "55.000 €",
-      period: "/ Monat", 
       icon: Trophy,
       color: "from-orange-600 to-orange-700",
       features: [
@@ -145,12 +137,7 @@ const PartnershipSection = () => {
                       <IconComponent className="w-8 h-8 text-white" />
                     </div>
                     
-                    <h3 className="text-2xl font-bold text-black text-center mb-2">{tier.name}</h3>
-                    
-                    <div className="text-center mb-6">
-                      <span className="text-3xl font-bold text-black">{tier.price}</span>
-                      <span className="text-gray-500">{tier.period}</span>
-                    </div>
+                    <h3 className="text-2xl font-bold text-black text-center mb-6">{tier.name}</h3>
                     
                     <ul className="space-y-3 mb-6">
                       {tier.features.map((feature, featureIndex) => (
@@ -182,7 +169,7 @@ const PartnershipSection = () => {
           <div className="text-center bg-gray-50 p-8 rounded-2xl">
             <h3 className="text-xl font-bold text-black mb-4">Flexible Partnerschaft</h3>
             <p className="text-gray-600 mb-4">
-              Alle Partnerschaften sind bis zum Saisonende kündbar und bieten maximale Flexibilität für Ihr Unternehmen.
+              Alle Partnerschaften sind individuell gestaltbar und bieten maximale Flexibilität für Ihr Unternehmen.
             </p>
             <p className="text-sm text-gray-500">
               Individuelle Pakete und Exclusive-Sponsoring auf Anfrage verfügbar.
