@@ -2,6 +2,7 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Link } from "react-router-dom";
 import LanguageSelector from "./LanguageSelector";
 
 const Header = () => {
@@ -12,7 +13,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-red-500/20 shadow-sm">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-3">
             <div className="w-12 h-12 rounded-full flex items-center justify-center overflow-hidden">
               <img 
                 src="/lovable-uploads/588aa5bf-d4eb-4eaa-8d1c-f75462913a23.png" 
@@ -24,12 +25,15 @@ const Header = () => {
               <h1 className="text-black font-bold text-2xl">EULE</h1>
               <p className="text-red-500 text-sm">FOUNDED 2025</p>
             </div>
-          </div>
+          </Link>
           
           <nav className="hidden lg:flex items-center space-x-6">
-            <a href="#team" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
+            <Link to="/team" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
               {t('nav.team')}
-            </a>
+            </Link>
+            <Link to="/roadmap" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
+              Roadmap
+            </Link>
             <a href="#technology" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
               {t('nav.technology')}
             </a>
@@ -65,7 +69,8 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="lg:hidden mt-4 pb-4 border-t border-red-500/20">
             <div className="flex flex-col space-y-4 mt-4">
-              <a href="#team" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.team')}</a>
+              <Link to="/team" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.team')}</Link>
+              <Link to="/roadmap" className="text-gray-700 hover:text-red-500 transition-colors">Roadmap</Link>
               <a href="#technology" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.technology')}</a>
               <a href="#partnerships" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.partnerships')}</a>
               <a href="#membership" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.membership')}</a>
