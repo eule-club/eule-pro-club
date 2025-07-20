@@ -55,16 +55,17 @@ const ShopSection = () => {
           </div>
           
           <div className="bg-red-500 rounded-2xl p-8 text-white text-center">
-            <h3 className="text-2xl font-bold mb-4">Coming Soon</h3>
+            <h3 className="text-2xl font-bold mb-4">Jetzt verfügbar!</h3>
             <p className="text-red-100 mb-6 max-w-2xl mx-auto">
-              Our official merchandise store is launching soon. Be the first to get exclusive EULE racing gear and limited edition collectibles.
+              Entdecken Sie unsere offizielle EULE Racing Kollektion in Zusammenarbeit mit Nike. Premium Qualität für echte Fans.
             </p>
             <Button 
               variant="outline" 
               size="lg" 
               className="border-white text-white hover:bg-white hover:text-red-500 px-8 py-4 text-lg font-semibold rounded-full"
+              onClick={() => window.location.href = '/shop'}
             >
-              Notify Me
+              Zum Shop
             </Button>
           </div>
         </div>

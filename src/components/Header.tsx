@@ -46,9 +46,9 @@ const Header = () => {
             <a href="#club" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
               {t('nav.club')}
             </a>
-            <a href="#shop" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
+            <Link to="/shop" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
               {t('nav.shop')}
-            </a>
+            </Link>
             <a href="#grandprix" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
               {t('nav.grandprix')}
             </a>
@@ -75,7 +75,7 @@ const Header = () => {
               <a href="#partnerships" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.partnerships')}</a>
               <a href="#membership" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.membership')}</a>
               <a href="#club" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.club')}</a>
-              <a href="#shop" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.shop')}</a>
+              <Link to="/shop" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.shop')}</Link>
               <a href="#grandprix" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.grandprix')}</a>
               <div className="pt-2">
                 <LanguageSelector />
