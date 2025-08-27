@@ -39,13 +39,27 @@ const VisionMission = () => {
               <div>
                 <Card className="bg-card border-primary/20">
                   <CardContent className="p-8">
-                    <div className="text-6xl mb-6 text-center">🦉</div>
+                    <div className="flex justify-center mb-6">
+                      <div className="w-24 h-24 rounded-full border-2 border-primary flex items-center justify-center bg-primary/10">
+                        <span className="text-4xl">🦉</span>
+                      </div>
+                    </div>
                     <h3 className="text-2xl font-bold text-primary mb-4 text-center">
                       {t('vision.story.owl.title')}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-muted-foreground leading-relaxed mb-4">
                       {t('vision.story.owl.description')}
                     </p>
+                    <div className="text-center">
+                      <a 
+                        href="https://www.grugapark.de/erleben/fuer_tierfreunde/eulen.de.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-primary hover:text-primary/80 underline transition-colors"
+                      >
+                        🌐 Virtueller Besuch der Eulen im Grugapark
+                      </a>
+                    </div>
                   </CardContent>
                 </Card>
               </div>
