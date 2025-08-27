@@ -31,6 +31,9 @@ const Header = () => {
             <Link to="/team" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
               {t('nav.team')}
             </Link>
+            <Link to="/vision-mission" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
+              {t('nav.vision')}
+            </Link>
             <Link to="/roadmap" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
               Roadmap
             </Link>
@@ -70,6 +73,7 @@ const Header = () => {
           <nav className="lg:hidden mt-4 pb-4 border-t border-red-500/20">
             <div className="flex flex-col space-y-4 mt-4">
               <Link to="/team" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.team')}</Link>
+              <Link to="/vision-mission" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.vision')}</Link>
               <Link to="/roadmap" className="text-gray-700 hover:text-red-500 transition-colors">Roadmap</Link>
               <a href="#technology" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.technology')}</a>
               <a href="#partnerships" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.partnerships')}</a>
