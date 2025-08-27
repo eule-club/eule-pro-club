@@ -40,9 +40,11 @@ const VisionMission = () => {
                 <Card className="bg-card border-primary/20">
                   <CardContent className="p-8">
                     <div className="flex justify-center mb-6">
-                      <div className="w-24 h-24 rounded-full border-2 border-primary flex items-center justify-center bg-primary/10">
-                        <span className="text-4xl">🦉</span>
-                      </div>
+                      <img 
+                        src="/lovable-uploads/acadd95e-1d55-4a24-bfc6-9c9edbc3e48e.png" 
+                        alt="EULE Logo - Steinkautz aus Grugapark"
+                        className="w-32 h-32 object-contain"
+                      />
                     </div>
                     <h3 className="text-2xl font-bold text-primary mb-4 text-center">
                       {t('vision.story.owl.title')}
