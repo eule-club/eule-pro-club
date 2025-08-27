@@ -41,9 +41,9 @@ const VisionMission = () => {
                   <CardContent className="p-8">
                     <div className="flex justify-center mb-6">
                       <img 
-                        src="/lovable-uploads/acadd95e-1d55-4a24-bfc6-9c9edbc3e48e.png" 
-                        alt="EULE Logo - Steinkautz aus Grugapark"
-                        className="w-32 h-32 object-contain"
+                        src="/lovable-uploads/47de7fbe-383f-4992-b160-1a0a5cc3f6b3.png" 
+                        alt="EULE Logo - Club EULE Founded 2025"
+                        className="w-40 h-40 object-contain"
                       />
                     </div>
                     <h3 className="text-2xl font-bold text-primary mb-4 text-center">
