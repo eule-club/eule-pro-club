@@ -115,15 +115,15 @@ const Shop = () => {
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-6">
               <img 
-                src="/lovable-uploads/588aa5bf-d4eb-4eaa-8d1c-f75462913a23.png" 
+                src="/lovable-uploads/e7d5abfb-b837-42bb-9ae0-1306bafe0381.png" 
                 alt="EULE Logo" 
                 className="w-16 h-16 mr-4"
               />
               <h1 className="text-4xl md:text-6xl font-bold text-black">
-                Products EULE & NIKE
+                EULE Club Edition x Printful
               </h1>
               <img 
-                src="/lovable-uploads/588aa5bf-d4eb-4eaa-8d1c-f75462913a23.png" 
+                src="/lovable-uploads/e7d5abfb-b837-42bb-9ae0-1306bafe0381.png" 
                 alt="EULE Logo" 
                 className="w-16 h-16 ml-4"
               />
