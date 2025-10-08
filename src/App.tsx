@@ -13,6 +13,7 @@ import VisionMission from "./pages/VisionMission";
 import EulePro from "./pages/EulePro";
 import Apply from "./pages/Apply";
 import Checkout from "./pages/Checkout";
+import TechnicalSpecs from "./pages/TechnicalSpecs";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ const App = () => (
             <Route path="/eule-pro" element={<EulePro />} />
             <Route path="/apply" element={<Apply />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/technical-specs" element={<TechnicalSpecs />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

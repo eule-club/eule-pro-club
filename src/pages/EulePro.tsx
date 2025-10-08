@@ -14,7 +14,7 @@ const EulePro = () => {
 
   useEffect(() => {
     // Animate counting up
-    const targetAmount = 10000000;
+    const targetAmount = 1225000;
     const targetInvestors = 475;
     const duration = 2000;
     const steps = 60;
@@ -35,7 +35,7 @@ const EulePro = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const progressPercentage = (10000000 / 15000000) * 100; // ~67%
+  const progressPercentage = (1225000 / 10000000) * 100; // ~12%
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: 'Inter, sans-serif' }}>

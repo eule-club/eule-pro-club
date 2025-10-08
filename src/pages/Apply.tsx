@@ -127,15 +127,84 @@ const Apply = () => {
                 
                 {showInfo && (
                   <div className="mt-4 text-sm text-gray-700 space-y-2">
-                    <p>• Mindestlaufzeit: 1,5 Jahre</p>
-                    <p>• Fester Zinssatz: 7,00 % p.a.</p>
-                    <p>• Auszahlung: Jährlich</p>
-                    <p>• Risikoklasse: Mittel</p>
-                    <p className="pt-2">
+                    <div className="flex justify-between">
+                      <span>Verbleibende Tage:</span>
+                      <span className="font-semibold">22</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Finanzierung endet am:</span>
+                      <span className="font-semibold">30.10.2025</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Typ:</span>
+                      <span className="font-semibold">Investment</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Nachrang:</span>
+                      <span className="font-semibold">nein</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Bereits finanziert:</span>
+                      <span className="font-semibold">1.225.000 €</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Preis pro Anleihe:</span>
+                      <span className="font-semibold">250,00 €</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Mindestabnahme:</span>
+                      <span className="font-semibold">1 Einheit</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Laufzeit:</span>
+                      <span className="font-semibold">1,5 Jahre</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Fester Zinssatz:</span>
+                      <span className="font-semibold">7,00 % p.a.</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Auszahlung:</span>
+                      <span className="font-semibold">Jährlich</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Risikoklasse:</span>
+                      <span className="font-semibold">Niedrig</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Emissionsvolumen:</span>
+                      <span className="font-semibold">10.000.000 €</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Zinszahlung:</span>
+                      <span className="font-semibold">halbjährlich</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Tilgung:</span>
+                      <span className="font-semibold">endfällig</span>
+                    </div>
+                    <p className="pt-4 border-t border-gray-200 mt-4">
                       <a href="#" className="text-[#FF1E00] hover:underline font-semibold">
                         → Prospekt herunterladen (PDF)
                       </a>
                     </p>
+                    <div className="pt-4 border-t border-gray-200 mt-4">
+                      <p className="font-semibold mb-2">Haben Sie Fragen?</p>
+                      <a 
+                        href="mailto:invest@eule.pro" 
+                        className="text-[#FF1E00] hover:underline block"
+                      >
+                        invest@eule.pro
+                      </a>
+                      <a 
+                        href="https://wa.me/4916338333120" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-[#FF1E00] hover:underline block mt-1"
+                      >
+                        +49 163 38 33 120 (WhatsApp)
+                      </a>
+                    </div>
                   </div>
                 )}
               </div>

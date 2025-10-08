@@ -330,13 +330,18 @@ const Checkout = () => {
                   Unser Team steht Ihnen zur Seite.
                 </p>
                 <p className="text-sm">
-                  <a href="mailto:invest@eule-racing.com" className="text-[#FF1E00] hover:underline font-semibold">
-                    invest@eule-racing.com
+                  <a href="mailto:invest@eule.pro" className="text-[#FF1E00] hover:underline font-semibold">
+                    invest@eule.pro
                   </a>
                 </p>
                 <p className="text-sm">
-                  <a href="tel:+491234567890" className="text-[#FF1E00] hover:underline font-semibold">
-                    +49 123 456 7890
+                  <a 
+                    href="https://wa.me/4916338333120" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-[#FF1E00] hover:underline font-semibold"
+                  >
+                    +49 163 38 33 120 (WhatsApp)
                   </a>
                 </p>
               </div>
