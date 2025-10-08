@@ -10,6 +10,9 @@ import Team from "./pages/Team";
 import Roadmap from "./pages/Roadmap";
 import Shop from "./pages/Shop";
 import VisionMission from "./pages/VisionMission";
+import EulePro from "./pages/EulePro";
+import Apply from "./pages/Apply";
+import Checkout from "./pages/Checkout";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +30,9 @@ const App = () => (
           <Route path="/roadmap" element={<Roadmap />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/vision-mission" element={<VisionMission />} />
+            <Route path="/eule-pro" element={<EulePro />} />
+            <Route path="/apply" element={<Apply />} />
+            <Route path="/checkout" element={<Checkout />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
