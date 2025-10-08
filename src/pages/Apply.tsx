@@ -103,7 +103,7 @@ const Apply = () => {
           <div className="md:col-span-1">
             <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-8">
               <img 
-                src="/lovable-uploads/e1e847bf-73cf-45ce-8c15-19fee54750c0.png"
+                src="/lovable-uploads/eule-rennwagen-hero.png"
                 alt="EULE Rennwagen"
                 className="w-full h-auto rounded-lg mb-6"
               />

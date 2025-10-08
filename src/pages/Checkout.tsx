@@ -287,7 +287,7 @@ const Checkout = () => {
               {/* Branding */}
               <div>
                 <img 
-                  src="/lovable-uploads/e1e847bf-73cf-45ce-8c15-19fee54750c0.png"
+                  src="/lovable-uploads/eule-rennwagen-hero.png"
                   alt="EULE Rennwagen"
                   className="w-full h-auto rounded-lg mb-4"
                 />
