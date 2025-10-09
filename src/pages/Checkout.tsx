@@ -5,12 +5,23 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Lock, Check } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
+import BankTransferInfo from "@/components/payment/BankTransferInfo";
+import CreditCardDialog from "@/components/payment/CreditCardDialog";
+import CryptoDialog from "@/components/payment/CryptoDialog";
+import LoginRegisterDialog from "@/components/auth/LoginRegisterDialog";
 
 const Checkout = () => {
   const location = useLocation();
   const { toast } = useToast();
   const shares = location.state?.shares || 10;
   const totalPrice = location.state?.totalPrice || 2500;
+
+  // Generate order number
+  const [orderNumber] = useState(() => {
+    const lastOrderNumber = localStorage.getItem('lastOrderNumber') || 'EULE-000211';
+    const numPart = parseInt(lastOrderNumber.split('-')[1]) + 1;
+    return `EULE-${String(numPart).padStart(6, '0')}`;
+  });
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -32,6 +43,9 @@ const Checkout = () => {
   });
 
   const [paymentMethod, setPaymentMethod] = useState("bank");
+  const [showCreditCardDialog, setShowCreditCardDialog] = useState(false);
+  const [showCryptoDialog, setShowCryptoDialog] = useState(false);
+  const [showLoginDialog, setShowLoginDialog] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,10 +59,51 @@ const Checkout = () => {
       return;
     }
 
+    // Save order number for next order
+    localStorage.setItem('lastOrderNumber', orderNumber);
+
+    // Show login/register dialog
+    setShowLoginDialog(true);
+
+    // Send confirmation email (simulated)
     toast({
       title: "Bestellung eingegangen!",
       description: "Sie erhalten in Kürze eine Bestätigungs-E-Mail.",
     });
+  };
+
+  const handleProspectusDownload = () => {
+    const prospectusContent = `
+EULE FE-01 - Wertpapierprospekt
+
+PRODUKTION & UNTERNEHMEN
+
+EULE ist ein deutsches High-Tech-Unternehmen, das sich auf die Entwicklung und Produktion von Hochleistungs-Elektrorennwagen spezialisiert hat.
+
+Unsere Mission: Die Grenzen der Elektromobilität im Motorsport neu zu definieren.
+
+INVESTMENT DETAILS
+Bereits finanziert: 1.225.000 €
+Preis pro Anleihe: 250,00 €
+Laufzeit: 1,5 Jahre
+Fester Zinssatz: 7,00 % p.a.
+Risikoklasse: Niedrig
+Emissionsvolumen: 10.000.000 € (in 40000 Einheiten)
+
+KONTAKT
+E-Mail: invest@eule.pro
+WhatsApp: +49 163 38 33 120
+    `;
+    
+    const blob = new Blob([prospectusContent], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'EULE-Wertpapierprospekt.txt';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
   };
 
   return (
@@ -188,7 +243,9 @@ const Checkout = () => {
                     Zahlungsmethode
                   </h2>
                   <div className="space-y-3">
-                    <label className="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-[#FF1E00] transition-colors">
+                    <label className={`flex items-center gap-3 p-4 border-2 rounded-lg cursor-pointer transition-colors ${
+                      paymentMethod === "bank" ? "border-[#FF1E00] bg-[#FF1E00]/5" : "border-gray-200 hover:border-[#FF1E00]"
+                    }`}>
                       <input 
                         type="radio" 
                         name="payment" 
@@ -199,24 +256,40 @@ const Checkout = () => {
                       />
                       <span className="font-semibold">Banküberweisung</span>
                     </label>
-                    <label className="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-[#FF1E00] transition-colors">
+                    
+                    {paymentMethod === "bank" && (
+                      <BankTransferInfo amount={totalPrice} orderNumber={orderNumber} />
+                    )}
+
+                    <label className={`flex items-center gap-3 p-4 border-2 rounded-lg cursor-pointer transition-colors ${
+                      paymentMethod === "card" ? "border-[#FF1E00] bg-[#FF1E00]/5" : "border-gray-200 hover:border-[#FF1E00]"
+                    }`}>
                       <input 
                         type="radio" 
                         name="payment" 
                         value="card"
                         checked={paymentMethod === "card"}
-                        onChange={(e) => setPaymentMethod(e.target.value)}
+                        onChange={(e) => {
+                          setPaymentMethod(e.target.value);
+                          setShowCreditCardDialog(true);
+                        }}
                         className="w-5 h-5"
                       />
                       <span className="font-semibold">Kreditkarte</span>
                     </label>
-                    <label className="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-[#FF1E00] transition-colors">
+
+                    <label className={`flex items-center gap-3 p-4 border-2 rounded-lg cursor-pointer transition-colors ${
+                      paymentMethod === "crypto" ? "border-[#FF1E00] bg-[#FF1E00]/5" : "border-gray-200 hover:border-[#FF1E00]"
+                    }`}>
                       <input 
                         type="radio" 
                         name="payment" 
                         value="crypto"
                         checked={paymentMethod === "crypto"}
-                        onChange={(e) => setPaymentMethod(e.target.value)}
+                        onChange={(e) => {
+                          setPaymentMethod(e.target.value);
+                          setShowCryptoDialog(true);
+                        }}
                         className="w-5 h-5"
                       />
                       <span className="font-semibold">Kryptowährung</span>
@@ -238,7 +311,7 @@ const Checkout = () => {
                         className="mt-1"
                       />
                       <span className="text-sm text-gray-700">
-                        Ich habe den <a href="#" className="text-[#FF1E00] hover:underline font-semibold">Wertpapierprospekt</a> gelesen und verstanden.
+                        Ich habe den <button onClick={handleProspectusDownload} className="text-[#FF1E00] hover:underline font-semibold">Wertpapierprospekt</button> gelesen und verstanden.
                       </span>
                     </label>
                     <label className="flex items-start gap-3 cursor-pointer">
@@ -274,7 +347,7 @@ const Checkout = () => {
                     type="submit"
                     className="w-full bg-[#FF1E00] hover:bg-[#FF1E00]/90 text-white font-bold text-xl py-8"
                   >
-                    VERBINDLICH BESTELLEN & ZAHLUNG EINLEITEN
+                    JETZT VERBINDLICH BESTELLEN
                   </Button>
                 </div>
               </form>
@@ -349,6 +422,25 @@ const Checkout = () => {
           </div>
         </div>
       </div>
+
+      {/* Payment Dialogs */}
+      <CreditCardDialog 
+        open={showCreditCardDialog}
+        onClose={() => setShowCreditCardDialog(false)}
+        amount={totalPrice}
+      />
+      
+      <CryptoDialog 
+        open={showCryptoDialog}
+        onClose={() => setShowCryptoDialog(false)}
+        amount={totalPrice}
+      />
+
+      {/* Login/Register Dialog */}
+      <LoginRegisterDialog 
+        open={showLoginDialog}
+        onClose={() => setShowLoginDialog(false)}
+      />
     </div>
   );
 };

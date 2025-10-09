@@ -28,6 +28,9 @@ const Header = () => {
           </Link>
           
           <nav className="hidden lg:flex items-center space-x-6">
+            <Link to="/eule-pro" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
+              EULE Car
+            </Link>
             <Link to="/team" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
               {t('nav.team')}
             </Link>
@@ -37,9 +40,9 @@ const Header = () => {
             <Link to="/roadmap" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
               Roadmap
             </Link>
-            <a href="#technology" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
-              {t('nav.technology')}
-            </a>
+            <Link to="/technical-specs" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
+              Technologie
+            </Link>
             <a href="#partnerships" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
               {t('nav.partnerships')}
             </a>

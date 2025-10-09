@@ -1,13 +1,69 @@
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const TechnicalSpecs = () => {
   const { language } = useLanguage();
 
+  const handleProspectusDownload = () => {
+    // Create prospectus content
+    const prospectusContent = `
+EULE FE-01 - Investment Prospekt
+
+INVESTMENT DETAILS
+
+Verbleibende Tage: 22
+Finanzierung endet am: 30.10.2025
+Typ: Investment
+Nachrang: nein
+Bereits finanziert: 1.225.000 €
+Preis pro Anleihe: 250,00 €
+Mindestabnahme: 1 Einheit
+Laufzeit: 1,5 Jahre
+Fester Zinssatz: 7,00 % p.a.
+Auszahlung: Jährlich
+Risikoklasse: Niedrig
+Emissionsvolumen: 10.000.000 € (in 40000 Einheiten)
+Zinszahlung: halbjährlich
+Tilgung: endfällig
+
+TECHNISCHE DETAILS: EULE FE-01
+
+1. Fahrzeugtyp:
+- Reiner Elektroantrieb Formel-E-Rennwagen (Einsitzer)
+- Entwicklungsname: Eule FE-01
+- Modelljahr: 2025
+
+2. Abmessungen (circa):
+- Länge: 5200 mm
+- Breite: 1890 mm (exkl. Radkappen)
+- Höhe: 1050 mm
+- Radstand: 3100 mm
+- Spurweite vorne: 1650 mm
+- Spurweite hinten: 1550 mm
+
+3. Innovation & Fahrzeugmanagement: EULE-System
+AI-Powered Advanced Optimization Services
+Betriebssystem-Optimierung bei Batterie und Antrieb
+
+Kontakt: invest@eule.pro
+WhatsApp: +49 163 38 33 120
+    `;
+    
+    const blob = new Blob([prospectusContent], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'EULE-Investment-Prospekt.txt';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-[#F5F5F7]" style={{ fontFamily: 'Inter, sans-serif' }}>
-      <Header />
       
       {/* Hero Section */}
       <section className="bg-black text-white py-20">
@@ -18,9 +74,15 @@ const TechnicalSpecs = () => {
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
             TECHNISCHE DETAILS
           </h2>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto">
+          <p className="text-xl text-white/80 max-w-3xl mx-auto mb-6">
             Präzision, Innovation und Performance in jedem Detail
           </p>
+          <Button
+            onClick={handleProspectusDownload}
+            className="bg-[#FF1E00] hover:bg-[#FF1E00]/90 text-white font-bold"
+          >
+            → Prospekt herunterladen (PDF)
+          </Button>
         </div>
       </section>
 
@@ -63,13 +125,25 @@ const TechnicalSpecs = () => {
           </div>
           
           {/* Blueprint */}
-          <div className="bg-white rounded-2xl shadow-2xl p-8">
+          <div className="bg-white rounded-2xl shadow-2xl p-8 mb-12">
             <h3 className="text-3xl font-bold mb-6 text-center">Technische Details</h3>
             <img 
               src="/lovable-uploads/eule-tech-blueprint.png"
               alt="EULE FE-01 Technische Details"
               className="w-full h-auto rounded-lg"
             />
+          </div>
+
+          {/* Investment CTA Button */}
+          <div className="text-center">
+            <Link to="/apply">
+              <Button 
+                size="lg"
+                className="bg-[#FF1E00] hover:bg-[#FF1E00]/90 text-white font-bold text-xl px-12 py-6 shadow-2xl"
+              >
+                JETZT INVESTIEREN
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -88,7 +162,7 @@ const TechnicalSpecs = () => {
               <ul className="space-y-2 text-lg">
                 <li><strong>Typ:</strong> Reiner Elektroantrieb Formel-E-Rennwagen (Einsitzer)</li>
                 <li><strong>Entwicklungsname:</strong> Eule FE-01</li>
-                <li><strong>Modelljahr:</strong> 2024</li>
+                <li><strong>Modelljahr:</strong> 2025</li>
               </ul>
             </div>
 
@@ -173,7 +247,7 @@ const TechnicalSpecs = () => {
               <h3 className="text-2xl font-bold mb-4 border-b-2 border-[#FF1E00] pb-2">9. Räder und Reifen</h3>
               <ul className="space-y-2 text-lg">
                 <li><strong>Felgen:</strong> Spezielle Leichtmetallfelgen (schwarz, subtil detailliert)</li>
-                <li><strong>Reifen:</strong> Spezifische Allwetter-Rennreifen (Michelin Pilot Sport EV, gemäß Reglement)</li>
+                <li><strong>Reifen:</strong> Spezifische Allwetter-Rennreifen (IVDY Group, gemäß Reglement)</li>
               </ul>
             </div>
 
@@ -205,7 +279,7 @@ const TechnicalSpecs = () => {
                 <li><strong>Grundfarbe:</strong> Reinweiß</li>
                 <li>EULE-Logo in Rot und Bold an Front, Seite und auf den Flügeln</li>
                 <li>Individuelles Eulen-Maskottchen-Logo an den Seiten</li>
-                <li>Michelin-Logos in Blau und Weiß an den Radkästen</li>
+                <li>IVDY Group Logos in Blau und Weiß an den Radkästen</li>
               </ul>
             </div>
 
@@ -223,6 +297,18 @@ const TechnicalSpecs = () => {
                 <strong>Vorteile:</strong> Maximierung der Reichweite, Erhöhung der Performance unter Rennbedingungen, prädiktive Wartungsempfehlungen und ein adaptives Energiemanagement, das sich an Streckenbedingungen und Fahrstil anpasst.
               </p>
             </div>
+          </div>
+
+          {/* Final Investment CTA Button */}
+          <div className="text-center mt-12">
+            <Link to="/apply">
+              <Button 
+                size="lg"
+                className="bg-[#FF1E00] hover:bg-[#FF1E00]/90 text-white font-bold text-xl px-12 py-6 shadow-2xl"
+              >
+                JETZT INVESTIEREN
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

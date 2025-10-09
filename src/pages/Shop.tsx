@@ -119,8 +119,8 @@ const Shop = () => {
                 alt="EULE Logo" 
                 className="w-16 h-16 mr-4"
               />
-              <h1 className="text-4xl md:text-6xl font-bold text-black">
-                EULE Club Edition x Printful
+            <h1 className="text-4xl md:text-6xl font-bold text-black">
+                EULE Club Edition
               </h1>
               <img 
                 src="/lovable-uploads/e7d5abfb-b837-42bb-9ae0-1306bafe0381.png" 
@@ -129,7 +129,7 @@ const Shop = () => {
               />
             </div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Offizielle EULE Racing Kollektion in Zusammenarbeit mit Nike
+              Offizielle EULE Racing Kollektion
             </p>
             <div className="w-24 h-1 bg-red-500 mx-auto mt-6"></div>
           </div>

@@ -49,11 +49,9 @@ const MembershipSection = () => {
   const membershipTiers = [
     {
       id: "supporter",
-      name: "EULE Supporter",
-      price: "€29",
-      period: "/ Monat",
-      yearlyPrice: "€299",
-      yearlyPeriod: "/ Jahr (15% Rabatt)",
+      name: "EULE Club Monthly Plan",
+      price: "€99",
+      period: "/ Monatlich",
       icon: Users,
       color: "from-blue-500 to-blue-600",
       features: [
@@ -66,9 +64,9 @@ const MembershipSection = () => {
     },
     {
       id: "fans",
-      name: "EULE Fans",
-      price: "€99",
-      period: "/ Monat",
+      name: "EULE Inner Circle Life-Time Plan",
+      price: "€3333",
+      period: "/ One-Time-Payment",
       icon: Heart,
       color: "from-red-500 to-red-600",
       features: [
@@ -134,12 +132,6 @@ const MembershipSection = () => {
                     <div className="text-center mb-6">
                       <span className="text-4xl font-bold text-black">{tier.price}</span>
                       <span className="text-gray-500 text-lg">{tier.period}</span>
-                      {tier.yearlyPrice && (
-                        <div className="mt-2">
-                          <span className="text-2xl font-bold text-gray-700">{tier.yearlyPrice}</span>
-                          <span className="text-gray-500 text-sm">{tier.yearlyPeriod}</span>
-                        </div>
-                      )}
                     </div>
                     
                     <ul className="space-y-3 mb-8">

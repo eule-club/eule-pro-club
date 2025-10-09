@@ -39,8 +39,6 @@ const EulePro = () => {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: 'Inter, sans-serif' }}>
-      <Header />
-      
       {/* Hero Section - Black Background */}
       <section className="relative bg-black text-white min-h-screen flex items-center justify-center overflow-hidden">
         {/* Countdown Banner */}
@@ -68,26 +66,18 @@ const EulePro = () => {
               alt="EULE Elektro-Rennwagen"
               className="w-full h-auto object-contain drop-shadow-2xl"
             />
-            {/* Performance Investment Badge */}
-            <div className="absolute bottom-4 right-4 bg-[#FF1E00] text-white px-4 py-2 rounded-lg flex items-center gap-2">
-              <div className="w-8 h-8">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
-                </svg>
-              </div>
-              <span className="font-semibold">Performance Investment</span>
-            </div>
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              size="lg" 
-              className="bg-[#FF1E00] hover:bg-[#FF1E00]/90 text-white font-bold text-lg px-8 py-6"
-              onClick={() => document.getElementById('investment-details')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Mehr erfahren
-            </Button>
+            <Link to="/technical-specs">
+              <Button 
+                size="lg" 
+                className="bg-[#FF1E00] hover:bg-[#FF1E00]/90 text-white font-bold text-lg px-8 py-6"
+              >
+                Mehr erfahren
+              </Button>
+            </Link>
             <Link to="/apply">
               <Button 
                 size="lg" 
