@@ -55,18 +55,17 @@ const MembershipSection = () => {
       icon: Users,
       color: "from-blue-500 to-blue-600",
       features: [
-        "Behind-the-Scenes Updates",
-        "Community Discord Zugang",
-        "Newsletter & Tech-Updates",
-        "Member-only Content",
-        "Event-Benachrichtigungen"
+        "Behind-the-Scenes Access",
+        "Exclusive Merch & VIP Events",
+        "Members-Only Community",
+        "Priority for Future Drops & Events"
       ]
     },
     {
       id: "fans",
       name: "EULE Inner Circle Life-Time Plan",
       price: "€3333",
-      period: "/ One-Time-Payment",
+      period: "/ One-Time-Payment (Limited to only 100 spots)",
       icon: Heart,
       color: "from-red-500 to-red-600",
       features: [
@@ -94,7 +93,7 @@ const MembershipSection = () => {
             </div>
             
             <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
-              EULE Membership
+              EULE Club
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
               Werde Teil der <span className="text-red-500 font-semibold">EULE Familie</span> und unterstütze das intelligenteste Elektro-Motorsport-Team der Welt.

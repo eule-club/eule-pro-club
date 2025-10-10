@@ -79,8 +79,17 @@ const Apply = () => {
                     <span className="text-xl font-semibold text-black">{pricePerShare.toFixed(2)} €</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-700">Zins p.a.</span>
+                    <span className="text-gray-700">Gewinn p.m.</span>
                     <span className="text-xl font-semibold text-black">{interestRate.toFixed(2)} %</span>
+                  </div>
+                  <div className="mt-4 p-4 bg-red-50 border-l-4 border-red-500 rounded">
+                    <p className="text-sm text-gray-700">
+                      <strong>Limitiert</strong> auf die ersten 100{" "}
+                      <a href="http://club.eule.pro" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:underline font-semibold">
+                        EULE Club
+                      </a>
+                      {" "}Mitglieder
+                    </p>
                   </div>
                   <div className="flex justify-between items-center pt-4 border-t border-gray-300">
                     <span className="text-xl font-bold text-black">Gesamtzeichnungsbetrag</span>

@@ -39,8 +39,8 @@ const EulePro = () => {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: 'Inter, sans-serif' }}>
-      {/* Hero Section - Black Background */}
-      <section className="relative bg-black text-white min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero Section - Black Background - NO HEADER */}
+      <section className="relative bg-black text-white min-h-screen flex items-center justify-center overflow-hidden pt-8">
         {/* Countdown Banner */}
         <div className="absolute top-8 left-8 bg-[#FF1E00] text-white px-6 py-3 transform -rotate-6 shadow-2xl z-10 animate-pulse">
           <p className="font-bold text-lg">
@@ -97,11 +97,14 @@ const EulePro = () => {
           <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-2xl p-8 md:p-12">
             {/* Title */}
             <div className="text-center mb-12">
-              <h2 className="text-5xl md:text-6xl font-bold text-black mb-4">
-                EULE
+              <h2 className="text-5xl md:text-6xl font-bold mb-4">
+                <span className="text-[#FF1E00]">EULE</span>
               </h2>
-              <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
-                Der schnellste Elektro-Rennwagen aller Zeiten mit der Kraft der exzellenten Ingenieurskunst im Inneren.
+              <p className="text-3xl md:text-4xl font-bold text-black mb-2">
+                Der schnellste Elektro-Rennwagen aller Zeiten
+              </p>
+              <p className="text-xl text-gray-600">
+                Mit der Kraft der exzellenten Ingenieurskunst im Inneren.
               </p>
             </div>
 

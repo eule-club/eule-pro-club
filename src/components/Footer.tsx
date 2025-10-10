@@ -1,12 +1,15 @@
 
 import { Mail, Phone, MapPin, Instagram, Youtube, Facebook, Linkedin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import FAQ from "./FAQ";
 
 const Footer = () => {
   const { t } = useLanguage();
 
   return (
-    <footer id="contact" className="bg-gray-900 text-white py-16">
+    <footer id="contact" className="bg-gray-900 text-white">
+      <FAQ />
+      <div className="py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
@@ -116,6 +119,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </footer>
   );

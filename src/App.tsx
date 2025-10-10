@@ -11,9 +11,14 @@ import Roadmap from "./pages/Roadmap";
 import Shop from "./pages/Shop";
 import VisionMission from "./pages/VisionMission";
 import EulePro from "./pages/EulePro";
+import EuleSystem from "./pages/EuleSystem";
 import Apply from "./pages/Apply";
 import Checkout from "./pages/Checkout";
 import TechnicalSpecs from "./pages/TechnicalSpecs";
+import SignUp from "./pages/SignUp";
+import Dashboard from "./pages/Dashboard";
+import AffiliatePartner from "./pages/AffiliatePartner";
+import Transfer from "./pages/Transfer";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,13 +33,18 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/team" element={<Team />} />
-          <Route path="/roadmap" element={<Roadmap />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/vision-mission" element={<VisionMission />} />
+            <Route path="/roadmap" element={<Roadmap />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/vision-mission" element={<VisionMission />} />
             <Route path="/eule-pro" element={<EulePro />} />
+            <Route path="/eule-system" element={<EuleSystem />} />
             <Route path="/apply" element={<Apply />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/technical-specs" element={<TechnicalSpecs />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/affiliate" element={<AffiliatePartner />} />
+            <Route path="/transfer" element={<Transfer />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
