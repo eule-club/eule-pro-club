@@ -15,7 +15,7 @@ const Shop = () => {
       name: "EULE Racing T-Shirt Black",
       price: "129.99 €",
       category: "Herz Konzept",
-      image: "/lovable-uploads/7b9e5e9f-e766-41e1-ae56-c0cc8ddfec01.png",
+      image: "/lovable-uploads/EULE_Club_T-Shirt_Black.png",
       rating: 4.5
     },
     {
@@ -23,7 +23,7 @@ const Shop = () => {
       name: "EULE Racing T-Shirt White", 
       price: "129.99 €",
       category: "Herz Konzept",
-      image: "/lovable-uploads/7b9e5e9f-e766-41e1-ae56-c0cc8ddfec01.png",
+      image: "/lovable-uploads/EULE_Racing_T-Shirt_White.png",
       rating: 4.8
     },
     {
@@ -31,7 +31,7 @@ const Shop = () => {
       name: "EULE Racing Hoodie Black",
       price: "179.99 €",
       category: "Herz Konzept", 
-      image: "/lovable-uploads/7b9e5e9f-e766-41e1-ae56-c0cc8ddfec01.png",
+      image: "/lovable-uploads/EULE_Racing_Hoodie_Black.png",
       rating: 4.7
     },
     {
@@ -39,7 +39,7 @@ const Shop = () => {
       name: "EULE Racing Windbreaker",
       price: "179.99 €",
       category: "Herz Konzept",
-      image: "/lovable-uploads/7b9e5e9f-e766-41e1-ae56-c0cc8ddfec01.png",
+      image: "/lovable-uploads/EULE_Racing_Windbreaker.png",
       rating: 4.6
     },
     {
@@ -47,7 +47,7 @@ const Shop = () => {
       name: "EULE Racing T-Shirt Black Women",
       price: "104.99 €",
       category: "Herz Konzept",
-      image: "/lovable-uploads/7b9e5e9f-e766-41e1-ae56-c0cc8ddfec01.png",
+      image: "/lovable-uploads/EULE_Racing_T-Shirt_Black_Women.png",
       rating: 4.4
     },
     {
@@ -55,7 +55,7 @@ const Shop = () => {
       name: "EULE Racing T-Shirt White Women",
       price: "104.99 €", 
       category: "Herz Konzept",
-      image: "/lovable-uploads/7b9e5e9f-e766-41e1-ae56-c0cc8ddfec01.png",
+      image: "/lovable-uploads/EULE_Racing_T-Shirt_White_Women.png",
       rating: 4.9
     },
     {
@@ -63,7 +63,7 @@ const Shop = () => {
       name: "EULE Racing Premium Hoodie Beige",
       price: "209.99 €",
       category: "Herz Konzept",
-      image: "/lovable-uploads/7b9e5e9f-e766-41e1-ae56-c0cc8ddfec01.png",
+      image: "/lovable-uploads/EULE_Racing_Premium_Hoodie_Beige.png",
       rating: 4.8
     },
     {
@@ -71,7 +71,7 @@ const Shop = () => {
       name: "EULE Racing Premium Hoodie Black",
       price: "209.99 €",
       category: "Herz Konzept", 
-      image: "/lovable-uploads/7b9e5e9f-e766-41e1-ae56-c0cc8ddfec01.png",
+      image: "/lovable-uploads/EULE_Racing_Premium_Hoodie_Black.png",
       rating: 4.7
     }
   ];
