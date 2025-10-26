@@ -48,10 +48,10 @@ const MembershipSection = () => {
 
   const membershipTiers = [
     {
-      id: "supporter",
-      name: "EULE Club Monthly Plan",
+      id: "fans",
+      name: "EULE Club Fans Membership",
       price: "€99",
-      period: "/ Monatlich",
+      period: "/ Monat",
       icon: Users,
       color: "from-blue-500 to-blue-600",
       features: [
@@ -62,15 +62,15 @@ const MembershipSection = () => {
       ]
     },
     {
-      id: "fans",
+      id: "inner-circle",
       name: "EULE Inner Circle Life-Time Plan",
       price: "€3333",
-      period: "/ One-Time-Payment (Limited to only 100 spots)",
+      period: "/ Einmalig (Nur 100 Plätze)",
       icon: Heart,
       color: "from-red-500 to-red-600",
       features: [
-        "Alle Supporter Benefits",
-        "Exklusive Tech-Talks mit Hatice",
+        "Alle Fans Benefits",
+        "Exklusive Tech-Talks mit dem Team",
         "VIP Event-Einladungen",
         "Früher Merchandise-Zugang",
         "Persönliche Team-Updates",

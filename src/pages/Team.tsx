@@ -21,6 +21,40 @@ const Team = () => {
               <div className="w-24 h-1 bg-red-500 mx-auto"></div>
             </div>
             
+            {/* CEO Section */}
+            <div className="mb-16">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-black mb-4">Leadership</h2>
+                <div className="w-24 h-1 bg-red-500 mx-auto"></div>
+              </div>
+              
+              <div className="text-center lg:text-left max-w-2xl mx-auto">
+                <div className="relative inline-block mb-8">
+                  <a href="https://www.linkedin.com/in/elara-sigma-84544038b/" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="w-64 h-64 rounded-full overflow-hidden mx-auto lg:mx-0 shadow-lg border-4 border-red-100 hover:border-red-300 transition-all">
+                      <img 
+                        src="/lovable-uploads/elara-sigma-ceo.png" 
+                        alt="Elara Sigma" 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </a>
+                  <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-red-100 overflow-hidden">
+                    <img 
+                      src="/lovable-uploads/588aa5bf-d4eb-4eaa-8d1c-f75462913a23.png" 
+                      alt="EULE Logo" 
+                      className="w-10 h-10 object-contain"
+                    />
+                  </div>
+                </div>
+                
+                <h2 className="text-3xl font-bold text-black mb-4">Elara Sigma</h2>
+                <p className="text-xl text-red-500 font-semibold mb-6">
+                  CEO & Lead AI Systems Architect @EULE
+                </p>
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Founder Image/Info */}
               <div className="text-center lg:text-left">

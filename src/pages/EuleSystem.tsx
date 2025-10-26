@@ -123,12 +123,12 @@ const EuleSystem = () => {
       </section>
 
       {/* Sticky Bottom Banner */}
-      <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-orange-500 to-orange-600 text-white py-4 px-4 shadow-lg z-40">
+      <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-[#ff1e00] to-[#ff1e00] text-white py-4 px-4 shadow-lg z-40">
         <div className="container mx-auto flex justify-between items-center">
           <span className="text-lg font-semibold">Start Investing today.</span>
           <div className="flex gap-4 items-center">
             <Link to="/apply">
-              <Button className="bg-white text-orange-600 hover:bg-gray-100 font-bold">
+              <Button className="bg-white text-[#ff1e00] hover:bg-gray-100 font-bold">
                 Invest Now
               </Button>
             </Link>

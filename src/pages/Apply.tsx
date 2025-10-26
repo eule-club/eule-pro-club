@@ -196,7 +196,7 @@ const Apply = () => {
                     </div>
                     <div className="flex justify-between">
                       <span>Investitionszielvolumen:</span>
-                      <span className="font-semibold">120.000 €</span>
+                      <span className="font-semibold">120.000.000 €</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Zinszahlung:</span>
