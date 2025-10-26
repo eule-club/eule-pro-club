@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
@@ -11,6 +11,20 @@ const Apply = () => {
   const navigate = useNavigate();
   const [shares, setShares] = useState([10]);
   const [showInfo, setShowInfo] = useState(false);
+  const [daysLeft, setDaysLeft] = useState(5);
+
+  useEffect(() => {
+    // Calculate days left until 31.10.2025
+    const calculateDaysLeft = () => {
+      const targetDate = new Date('2025-10-31T23:59:59');
+      const today = new Date();
+      const diffTime = targetDate.getTime() - today.getTime();
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      return Math.max(0, diffDays);
+    };
+
+    setDaysLeft(calculateDaysLeft());
+  }, []);
 
   const pricePerShare = 250;
   const interestRate = 7.0;
@@ -138,11 +152,11 @@ const Apply = () => {
                   <div className="mt-4 text-sm text-gray-700 space-y-2">
                     <div className="flex justify-between">
                       <span>Verbleibende Tage:</span>
-                      <span className="font-semibold">22</span>
+                      <span className="font-semibold">{daysLeft}</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Finanzierung endet am:</span>
-                      <span className="font-semibold">30.10.2025</span>
+                      <span className="font-semibold">31.10.2025</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Typ:</span>
@@ -181,8 +195,8 @@ const Apply = () => {
                       <span className="font-semibold">Niedrig</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Emissionsvolumen:</span>
-                      <span className="font-semibold">10.000.000 €</span>
+                      <span>Investitionszielvolumen:</span>
+                      <span className="font-semibold">120.000 €</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Zinszahlung:</span>

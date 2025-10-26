@@ -10,9 +10,20 @@ const EulePro = () => {
   const { language } = useLanguage();
   const [investedAmount, setInvestedAmount] = useState(0);
   const [investorCount, setInvestorCount] = useState(0);
-  const [daysLeft, setDaysLeft] = useState(22);
+  const [daysLeft, setDaysLeft] = useState(5);
 
   useEffect(() => {
+    // Calculate days left until 31.10.2025
+    const calculateDaysLeft = () => {
+      const targetDate = new Date('2025-10-31T23:59:59');
+      const today = new Date();
+      const diffTime = targetDate.getTime() - today.getTime();
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      return Math.max(0, diffDays);
+    };
+
+    setDaysLeft(calculateDaysLeft());
+
     // Animate counting up
     const targetAmount = 1225000;
     const targetInvestors = 475;
