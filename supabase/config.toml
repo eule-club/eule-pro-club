@@ -1,1 +1,7 @@
 project_id = "rykpwlyysapfwbrbjdxu"
+
+[functions.create-club-checkout]
+verify_jwt = false
+
+[functions.capture-lead]
+verify_jwt = false

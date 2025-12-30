@@ -51,9 +51,9 @@ const Header = () => {
             <a href="#partnerships" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
               {t('nav.partnerships')}
             </a>
-            <a href="/#membership" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
+            <Link to="/eule-club" className="text-gray-700 hover:text-red-500 transition-colors text-sm font-medium">
               EULE Club
-            </a>
+            </Link>
             
             <NavigationMenu>
               <NavigationMenuList>
@@ -65,7 +65,7 @@ const Header = () => {
                     <ul className="grid w-48 gap-3 p-4">
                       <li>
                         <NavigationMenuLink asChild>
-                          <Link to="/#membership" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-red-50 hover:text-red-500">
+                          <Link to="/eule-club" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-red-50 hover:text-red-500">
                             <div className="text-sm font-medium leading-none">EULE Club</div>
                           </Link>
                         </NavigationMenuLink>
@@ -133,7 +133,7 @@ const Header = () => {
               <Link to="/roadmap" className="text-gray-700 hover:text-red-500 transition-colors">Roadmap</Link>
               <Link to="/technical-specs" className="text-gray-700 hover:text-red-500 transition-colors">Technologie</Link>
               <a href="#partnerships" className="text-gray-700 hover:text-red-500 transition-colors">{t('nav.partnerships')}</a>
-              <a href="/#membership" className="text-gray-700 hover:text-red-500 transition-colors">EULE Club</a>
+              <Link to="/eule-club" className="text-gray-700 hover:text-red-500 transition-colors">EULE Club</Link>
               <a href="https://sponsor.eule.pro" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-red-500 transition-colors">EULE Sponsor</a>
               <Link to="/eule-pro" className="text-gray-700 hover:text-red-500 transition-colors">EULE Car</Link>
               <Link to="/eule-system" className="text-gray-700 hover:text-red-500 transition-colors">EULE System</Link>
