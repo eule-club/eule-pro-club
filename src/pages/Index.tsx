@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import FounderSection from "@/components/FounderSection";
@@ -9,6 +8,7 @@ import ClubSection from "@/components/ClubSection";
 import ShopSection from "@/components/ShopSection";
 import GrandPrixSection from "@/components/GrandPrixSection";
 import Footer from "@/components/Footer";
+import { ChatWidget } from "@/components/chat/ChatWidget";
 
 const Index = () => {
   return (
@@ -23,6 +23,7 @@ const Index = () => {
       <ShopSection />
       <GrandPrixSection />
       <Footer />
+      <ChatWidget />
     </div>
   );
 };
