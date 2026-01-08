@@ -13,6 +13,8 @@ import VisionMission from "./pages/VisionMission";
 import EulePro from "./pages/EulePro";
 import EuleSystem from "./pages/EuleSystem";
 import EuleClub from "./pages/EuleClub";
+import ClubEule from "./pages/ClubEule";
+import Sponsor from "./pages/Sponsor";
 import Apply from "./pages/Apply";
 import Checkout from "./pages/Checkout";
 import TechnicalSpecs from "./pages/TechnicalSpecs";
@@ -40,6 +42,8 @@ const App = () => (
             <Route path="/eule-pro" element={<EulePro />} />
             <Route path="/eule-system" element={<EuleSystem />} />
             <Route path="/eule-club" element={<EuleClub />} />
+            <Route path="/club-eule" element={<ClubEule />} />
+            <Route path="/sponsor" element={<Sponsor />} />
             <Route path="/apply" element={<Apply />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/technical-specs" element={<TechnicalSpecs />} />
